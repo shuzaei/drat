@@ -5,7 +5,7 @@ import regex
 
 DRAT_CMD = "drat"
 CONTAINER = "/dev/disk3"
-VOLUME = 0
+VOLUME = "0"
 PATH = "/"
 OUT = "/Volumes/Files/Recovery/"
 
