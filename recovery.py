@@ -1,13 +1,14 @@
+#!/usr/bin/env python3
+
 import os
 import subprocess
-import sys
 import regex
 
 DRAT_CMD = "drat"
 CONTAINER = "/dev/disk3"
 VOLUME = "0"
 PATH = "/"
-OUT = "/Volumes/Files/Recovery/"
+OUT = "/Volumes/Volume01/Recovery/"
 
 stack = [PATH]
 indent = 0
@@ -26,9 +27,12 @@ while stack:
 
     filelist = []
     for line in result.stderr.splitlines():
-        match = regex.match(r"^\- DIR REC \|\| .* \|\| name \= (.*)$", line)
+        match = regex.match(r"^\- DIR REC \|\| (.*) \|\| name \= (.*)$", line)
         if match:
-            filelist.append(path + match.group(1))
+            if regex.match(r"^Dirctry || .*$", match.group(1)):
+                os.makedirs(OUT + path + match.group(2), exist_ok=True, mode=0o777)
+            else:
+                filelist.append(path + match.group(2))
 
     if len(filelist) == 0:
         path = path[:-1]
