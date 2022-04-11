@@ -1,5 +1,5 @@
 # Changes
-- Added 2 files, [listing.py](listing.py) for listing all files in a volume and [recovery.py](recovery.py) for recovering all files in a volume
+- Added 1 file, [recovery.py](recovery.py) for recovering all files in a volume
 
 # Attention
 - Use sudo to run the script
