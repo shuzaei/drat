@@ -7,7 +7,8 @@ DRAT_CMD = "drat"
 CONTAINER = "/dev/disk4"
 VOLUME = "0"
 PATH = "/"
-TYPE = ["Symlink"]  # "Directory", "RegFile", "Symlink"
+TYPE = ["Symlink"]  # "Directory", "RegFile", "Symlink", ...
+# Learn more at line 245 on https://github.com/jivanpal/drat/blob/567fa16f359659df84bd70c3556f4d446a0b981a/include/drat/string/j.c
 
 stack = [PATH]
 
